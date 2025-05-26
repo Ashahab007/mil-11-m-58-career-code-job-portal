@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { AuthContext } from "./AuthContext";
 import {
   createUserWithEmailAndPassword,
+  GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
 } from "firebase/auth";
 import { auth } from "../../public/firebase/firebase.init";
@@ -11,6 +13,9 @@ import { auth } from "../../public/firebase/firebase.init";
 // 5.1 then created Authprovider
 
 const AuthProvider = ({ children }) => {
+  // 13.1 import GoogleAuthProvider
+  const provider = new GoogleAuthProvider();
+
   // 6.0 my requirement is enable user registration using loading state
   const [loading, setLoading] = useState(true);
 
@@ -34,6 +39,10 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
+  // 13.0 my requirement is implementing google sign in feature
+  const googleSignIn = () => {
+    return signInWithPopup(auth, provider);
+  };
   //  8.0 My requirement is persist the user using onAuthStateChange
 
   useEffect(() => {
@@ -46,8 +55,15 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   // 6.2 pass the createUser and loading
-  //   7.2, 8.2, 9.1
-  const authInfo = { createUser, loading, signInUser, user, userSignOut };
+  //   7.2, 8.2, 9.1, 13.1
+  const authInfo = {
+    createUser,
+    loading,
+    signInUser,
+    user,
+    userSignOut,
+    googleSignIn,
+  };
   // 5.2
   return <AuthContext value={authInfo}>{children}</AuthContext>;
 };

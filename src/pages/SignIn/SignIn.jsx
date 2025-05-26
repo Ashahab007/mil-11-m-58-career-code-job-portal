@@ -2,11 +2,12 @@ import Lottie from "lottie-react";
 import React, { use } from "react";
 import loginAnimation from "../../assets/lottie/LoginAnimation - 1748238557797.json";
 import { AuthContext } from "../../context/AuthContext";
+import GoogleSignIn from "../shared/GoogleSignIn";
 
 // 7.1 created the sign in component
 const SignIn = () => {
   // 7.3
-  const { signInUser } = use(AuthContext);
+  const { signInUser, googleSignIn } = use(AuthContext);
 
   const handelSignIn = (e) => {
     e.preventDefault();
@@ -65,6 +66,8 @@ const SignIn = () => {
               </button>
             </fieldset>
           </form>
+          {/* 13.5 apply also GoogleSignIn component in signin   */}
+          <GoogleSignIn></GoogleSignIn>
         </div>
       </div>
     </div>

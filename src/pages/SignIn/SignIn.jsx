@@ -3,9 +3,17 @@ import React, { use } from "react";
 import loginAnimation from "../../assets/lottie/LoginAnimation - 1748238557797.json";
 import { AuthContext } from "../../context/AuthContext";
 import GoogleSignIn from "../shared/GoogleSignIn";
+import { useLocation, useNavigate } from "react-router";
 
 // 7.1 created the sign in component
 const SignIn = () => {
+  // 8.3
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // 8.4 if state is present then on login user will go to the location.pathname which is present in the state else it will redirect to the home if the state is null
+  const from = location.state || "/";
+
   // 7.3
   const { signInUser, googleSignIn } = use(AuthContext);
 
@@ -20,6 +28,8 @@ const SignIn = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
+        // 8.5
+        navigate(from);
       })
       .catch((error) => {
         const errorCode = error?.code;
@@ -67,7 +77,8 @@ const SignIn = () => {
             </fieldset>
           </form>
           {/* 13.5 apply also GoogleSignIn component in signin   */}
-          <GoogleSignIn></GoogleSignIn>
+          {/* 8.6 same thing will be do for google sign in as we have the GoogleSignIn component so pass the "from" as props */}
+          <GoogleSignIn from={from}></GoogleSignIn>
         </div>
       </div>
     </div>

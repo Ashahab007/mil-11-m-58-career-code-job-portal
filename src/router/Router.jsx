@@ -6,6 +6,8 @@ import Home from "../pages/Home/Home";
 import Register from "../pages/Register/Register";
 import SignIn from "../pages/SignIn/SignIn";
 import JobDetails from "../pages/JobDetails/JobDetails";
+import PrivateRoutes from "../pages/routes/PrivateRoutes";
+import JobsApply from "../pages/JobsApply/JobsApply";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +22,18 @@ export const router = createBrowserRouter([
         // 6.1 created a route with component
         path: "/jobs/:id",
         Component: JobDetails,
+        // 6.3 fetch the data from server and send the data by id to the component using loader
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/jobs/${params.id}`),
+      },
+      // 7.2 create the router under privater route
+      {
+        path: "/jobsapply/:id",
+        element: (
+          <PrivateRoutes>
+            <JobsApply></JobsApply>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/register",

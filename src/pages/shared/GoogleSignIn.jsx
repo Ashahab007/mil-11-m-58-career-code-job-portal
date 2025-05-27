@@ -1,15 +1,22 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { useLocation, useNavigate } from "react-router";
 
-const GoogleSignIn = () => {
+// 8.7 receive from as props
+const GoogleSignIn = ({ from }) => {
   // 13.2 created a GoogleSignIn component in shared because we use in multiple pages
   const { googleSignIn } = useContext(AuthContext);
+
+  // 8.8
+  const navigate = useNavigate();
 
   // 13.3
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((result) => {
         console.log(result);
+        // 8.9
+        navigate(from);
       })
       .then((error) => {
         // const errorCode = error.code;

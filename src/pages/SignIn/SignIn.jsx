@@ -40,7 +40,7 @@ const SignIn = () => {
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
-        {/* 7.2 creating a animation from lottie. So first
+        {/* 11.2 creating a animation from lottie. So first
     download the animation from https://lottiefiles.com/. Select the
     animation then download the lottie JSON file. then install lottie react
     from https://www.npmjs.com/package/lottie-react "npm i lottie-react" */}

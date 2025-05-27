@@ -16,25 +16,25 @@ const AuthProvider = ({ children }) => {
   // 13.1 import GoogleAuthProvider
   const provider = new GoogleAuthProvider();
 
-  // 6.0 my requirement is enable user registration using loading state
+  // 6.0.0 my requirement is enable user registration using loading state
   const [loading, setLoading] = useState(true);
 
-  //   9.0 my requirement is show the logged in user in navbar
+  //   9.0.0 my requirement is show the logged in user in navbar
   const [user, setUser] = useState(null);
-  // 6.1
+  // 6.0.1
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  //   7.0 my requirement is enable user sign in method
+  //   7.0.0 my requirement is enable user sign in method
 
   const signInUser = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  // 10.0 my requirement is implement sign out feature
+  // 10.0.0 my requirement is implement sign out feature
   const userSignOut = () => {
     return signOut(auth);
   };
@@ -43,24 +43,26 @@ const AuthProvider = ({ children }) => {
   const googleSignIn = () => {
     return signInWithPopup(auth, provider);
   };
-  //  8.0 My requirement is persist the user using onAuthStateChange
+  //  8.0.0 My requirement is persist the user using onAuthStateChange
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       console.log(currentUser);
+      // 9.0.1 set the current user
       setUser(currentUser);
       setLoading(false);
     });
     return () => unsubscribe();
   }, []);
 
-  // 6.2 pass the createUser and loading
-  //   7.2, 8.2, 9.1, 13.1
+  // 6.0.2 pass the createUser and loading
+  //   7.0.2, 8.2, 9.1, 13.1
   const authInfo = {
     createUser,
     loading,
     signInUser,
     user,
+    // 10.0.1
     userSignOut,
     googleSignIn,
   };

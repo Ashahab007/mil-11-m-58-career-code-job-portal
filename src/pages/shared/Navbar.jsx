@@ -3,9 +3,9 @@ import { NavLink } from "react-router";
 import { AuthContext } from "../../context/AuthContext";
 
 const Navbar = () => {
-  // 9.2
+  // 9.0.2, 10.0.2
   const { user, userSignOut } = use(AuthContext);
-
+  // 10.0.3
   const handleSignOut = () => {
     userSignOut()
       .then(() => {
@@ -61,8 +61,9 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        {/* 9.3 conditionally show the user info */}
+        {/* 9.0.3 conditionally show the user info */}
         {user ? (
+          // 10.0.4
           <button to="/register" onClick={handleSignOut} className="btn">
             Sign Out
           </button>

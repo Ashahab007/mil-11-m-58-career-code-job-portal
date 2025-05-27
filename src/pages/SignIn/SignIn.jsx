@@ -5,16 +5,16 @@ import { AuthContext } from "../../context/AuthContext";
 import GoogleSignIn from "../shared/GoogleSignIn";
 import { useLocation, useNavigate } from "react-router";
 
-// 7.1 created the sign in component
+// 7.0.1 created the sign in component
 const SignIn = () => {
-  // 8.3
+  // 21.3
   const location = useLocation();
   const navigate = useNavigate();
 
-  // 8.4 if state is present then on login user will go to the location.pathname which is present in the state else it will redirect to the home if the state is null
+  // 21.4 if state is present then on login user will go to the location.pathname which is present in the state else it will redirect to the home if the state is null
   const from = location.state || "/";
 
-  // 7.3
+  // 7.0.3
   const { signInUser, googleSignIn } = use(AuthContext);
 
   const handelSignIn = (e) => {
@@ -23,12 +23,12 @@ const SignIn = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
-    // 7.4
+    // 7.0.4
     signInUser(email, password)
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
-        // 8.5
+        // 21.5
         navigate(from);
       })
       .catch((error) => {
@@ -76,8 +76,8 @@ const SignIn = () => {
               </button>
             </fieldset>
           </form>
-          {/* 13.5 apply also GoogleSignIn component in signin   */}
-          {/* 8.6 same thing will be do for google sign in as we have the GoogleSignIn component so pass the "from" as props */}
+          {/* 13.5 apply also GoogleSignIn component in signin page  */}
+          {/* 21.6 same thing will be do for google sign in as we have the GoogleSignIn component so pass the "from" as props */}
           <GoogleSignIn from={from}></GoogleSignIn>
         </div>
       </div>

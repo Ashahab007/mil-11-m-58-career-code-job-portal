@@ -2,12 +2,12 @@ import React, { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { useLocation, useNavigate } from "react-router";
 
-// 8.7 receive from as props
+// 21.7 receive from as props
 const GoogleSignIn = ({ from }) => {
-  // 13.2 created a GoogleSignIn component in shared because we use in multiple pages
+  // 13.2 created a GoogleSignIn component in shared folder because we use in multiple pages register and login
   const { googleSignIn } = useContext(AuthContext);
 
-  // 8.8
+  // 21.8
   const navigate = useNavigate();
 
   // 13.3
@@ -15,7 +15,7 @@ const GoogleSignIn = ({ from }) => {
     googleSignIn()
       .then((result) => {
         console.log(result);
-        // 8.9
+        // 21.9
         navigate(from);
       })
       .then((error) => {

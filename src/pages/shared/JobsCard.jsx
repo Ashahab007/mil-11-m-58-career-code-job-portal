@@ -46,7 +46,7 @@ const JobsCard = ({ job }) => {
           ))}
         </div>
       </div>
-      {/* 6.0 my requirement is see details upon click. set a dynamic id */}
+      {/* 19.0 my requirement is see details upon click. set a dynamic id */}
       <Link to={`/jobs/${_id}`} className="flex justify-end">
         <button className="btn btn-primary flex justify-end">
           See Details

@@ -19,10 +19,10 @@ export const router = createBrowserRouter([
         Component: Home,
       },
       {
-        // 6.1 created a route with component
+        // 19.1 created a route with component
         path: "/jobs/:id",
         Component: JobDetails,
-        // 6.3 fetch the data from server and send the data by id to the component using loader
+        // 19.3 fetch the data from server and send the data by id to the component using loader
         loader: ({ params }) =>
           fetch(`http://localhost:3000/jobs/${params.id}`),
       },

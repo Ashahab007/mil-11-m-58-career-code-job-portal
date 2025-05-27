@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLoaderData } from "react-router";
 
 const JobDetails = () => {
-  // 6.4 get the data and show in ui
+  // 19.4 get the data and show in ui
   const job = useLoaderData();
   console.log(job?.title);
 

@@ -8,6 +8,7 @@ import bannerImage2 from "../../../assets/bannerImage/BannerImage2.jpg";
 const Banner = () => {
   // 11.0 My requirement is applying motion dev  for animation
   return (
+    // 12.1 animate two banner
     <div className="hero bg-base-200 min-h-screen mx-auto">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="flex-1">

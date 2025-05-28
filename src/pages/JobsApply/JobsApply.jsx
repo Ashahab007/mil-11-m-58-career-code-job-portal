@@ -1,11 +1,14 @@
 import React from "react";
 import { useParams } from "react-router";
 import useAuth from "../../hooks/useAuth";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const JobsApply = () => {
-  // 23.0 as the logged in user is going to apply for the jobs so we need to get the job id using useParams() and also we need the user to know who is applying. so we create a custom hook to get the user data.
+  // 23.0 as the logged in user is going to apply for the specific job so we need to get the specific job id using useParams() and also we need the user to know who is applying. so we create a custom hook to get the user data.
   const { id } = useParams();
   console.log(id);
+
   // 23.3 call the useAuth to get the user info
   const { user } = useAuth();
   console.log(user);
@@ -18,6 +21,31 @@ const JobsApply = () => {
     const github = form.github.value;
     const resume = form.resume.value;
     console.log(linkedin, github, resume);
+
+    // 23.6 create object to send it to db
+    const applications = {
+      applicant: user.email,
+      id,
+      linkedin,
+      github,
+      resume,
+    };
+    // 23.9 apply the axios post method to send the data to the db using sweetalert2
+    axios
+      .post("http://localhost:3000/applications", applications)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.insertedId) {
+          Swal.fire({
+            title: "Your application has been submitted.",
+            icon: "success",
+            draggable: true,
+          });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (

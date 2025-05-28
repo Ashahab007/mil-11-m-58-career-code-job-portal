@@ -8,6 +8,7 @@ import SignIn from "../pages/SignIn/SignIn";
 import JobDetails from "../pages/JobDetails/JobDetails";
 import PrivateRoutes from "../pages/routes/PrivateRoutes";
 import JobsApply from "../pages/JobsApply/JobsApply";
+import MyApplications from "../pages/MyApplications/MyApplications";
 
 export const router = createBrowserRouter([
   {
@@ -26,12 +27,21 @@ export const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:3000/jobs/${params.id}`),
       },
-      // 7.2 create the router under privater route
+      // 7.2 create the router under privater route that's why took element instead of component
       {
         path: "/jobsapply/:id",
         element: (
           <PrivateRoutes>
             <JobsApply></JobsApply>
+          </PrivateRoutes>
+        ),
+      },
+      {
+        // 24.1 created myApplication route
+        path: "/myApplications",
+        element: (
+          <PrivateRoutes>
+            <MyApplications></MyApplications>
           </PrivateRoutes>
         ),
       },

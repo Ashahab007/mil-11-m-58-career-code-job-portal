@@ -21,10 +21,12 @@ const Navbar = () => {
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
-
-      <li>
-        <NavLink>Test</NavLink>
-      </li>
+      {/* 24.2 created conditionally to show the user's applications if user is present */}
+      {user && (
+        <li>
+          <NavLink to="/myApplications">My Application</NavLink>
+        </li>
+      )}
     </>
   );
   return (

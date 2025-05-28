@@ -25,11 +25,14 @@ const JobsApply = () => {
     // 23.6 create object to send it to db
     const applications = {
       applicant: user.email,
-      id,
+      jobId: id,
       linkedin,
       github,
       resume,
     };
+
+    console.log(applications);
+
     // 23.9 apply the axios post method to send the data to the db using sweetalert2
     axios
       .post("http://localhost:3000/applications", applications)

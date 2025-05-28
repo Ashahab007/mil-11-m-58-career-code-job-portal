@@ -23,9 +23,20 @@ const Navbar = () => {
       </li>
       {/* 24.2 created conditionally to show the user's applications if user is present */}
       {user && (
-        <li>
-          <NavLink to="/myApplications">My Application</NavLink>
-        </li>
+        <>
+          {/*for applicant  */}
+          <li>
+            <NavLink to="/myApplications">My Application</NavLink>
+          </li>
+        </>
+      )}
+      {user && (
+        <>
+          {/*for recruiter  */}
+          <li>
+            <NavLink to="/addjobs">Add Jobs</NavLink>
+          </li>
+        </>
       )}
     </>
   );
@@ -47,7 +58,7 @@ const Navbar = () => {
                 strokeLinejoin="round"
                 strokeWidth="2"
                 d="M4 6h16M4 12h8m-8 6h16"
-              />{" "}
+              />
             </svg>
           </div>
           <ul

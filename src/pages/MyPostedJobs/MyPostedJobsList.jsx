@@ -21,6 +21,7 @@ const MyPostedJobsList = ({ myPostedJobsPromise }) => {
           </thead>
           <tbody>
             {/* row 1 */}
+            {/* 28.11 make table row as component and pass the job as props */}
             {jobs.map((job, index) => (
               <MyPostedJobsTable
                 key={job._id}

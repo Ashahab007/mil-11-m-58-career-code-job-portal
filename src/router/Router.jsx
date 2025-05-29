@@ -11,6 +11,7 @@ import JobsApply from "../pages/JobsApply/JobsApply";
 import MyApplications from "../pages/MyApplications/MyApplications";
 import AddJobs from "../pages/AddJobs/AddJobs";
 import MyPostedJobs from "../pages/MyPostedJobs/MyPostedJobs";
+import ViewApplications from "../pages/ViewApplications/ViewApplications";
 
 export const router = createBrowserRouter([
   {
@@ -46,6 +47,19 @@ export const router = createBrowserRouter([
             <MyApplications></MyApplications>
           </PrivateRoutes>
         ),
+      },
+
+      // 29.3 created a View applications route
+      {
+        path: "/applications/:job_id",
+        element: (
+          <PrivateRoutes>
+            <ViewApplications></ViewApplications>
+          </PrivateRoutes>
+        ),
+        // 29.5 fetch the data dynamically
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/applications/job/${params.job_id}`),
       },
       // 27.1 create a route for recruiter to add jobs
       {

@@ -27,7 +27,7 @@ const AddJobs = () => {
     };
 
     //process requirements
-    const processRequirements = newJob.requirements.split(".");
+    const processRequirements = newJob.requirements.split(",");
     const requirements = processRequirements.map((req) => req.trim());
 
     // console.log(processRequirements, requirements);
@@ -35,7 +35,7 @@ const AddJobs = () => {
 
     // process responsibilities
     const responsibilities = newJob.responsibilities
-      .split(".")
+      .split(",")
       .map((res) => res.trim());
     newJob.responsibilities = responsibilities;
     console.log(newJob);
@@ -234,7 +234,7 @@ const AddJobs = () => {
             type="text"
             className="input w-full"
             placeholder="HR Email"
-            name="hremail"
+            name="hr_email"
             // 27.5 use the user email
             defaultValue={user.email}
           />

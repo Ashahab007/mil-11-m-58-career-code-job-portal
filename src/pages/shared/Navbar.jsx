@@ -37,6 +37,10 @@ const Navbar = () => {
           <li>
             <NavLink to="/addjobs">Add Jobs</NavLink>
           </li>
+          {/* 28.0 Now my requirement is show the job that i posted  */}
+          <li>
+            <NavLink to="/mypostedjobs">My Posted Jobs</NavLink>
+          </li>
         </>
       )}
     </>

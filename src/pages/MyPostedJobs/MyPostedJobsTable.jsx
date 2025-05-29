@@ -2,14 +2,14 @@ import React from "react";
 
 const MyPostedJobsTable = ({ job, index }) => {
   console.log(job);
-  const { title } = job;
+  const { _id, title, deadline } = job;
 
   return (
     <tr>
       <th>{index + 1}</th>
       <td>{title}</td>
-      <td>Quality Control Specialist</td>
-      <td>Blue</td>
+      <td>{deadline}</td>
+      <td></td>
     </tr>
   );
 };

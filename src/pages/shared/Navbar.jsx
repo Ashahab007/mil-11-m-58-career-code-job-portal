@@ -32,6 +32,7 @@ const Navbar = () => {
       )}
       {user && (
         <>
+          {/* 27.0 created also recruiter link to add jobs form */}
           {/*for recruiter  */}
           <li>
             <NavLink to="/addjobs">Add Jobs</NavLink>

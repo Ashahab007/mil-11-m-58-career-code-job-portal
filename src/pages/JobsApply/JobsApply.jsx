@@ -5,7 +5,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 const JobsApply = () => {
-  // 23.0 as the logged in user is going to apply for the specific job so we need to get the specific job id using useParams() and also we need the user to know who is applying. so we create a custom hook to get the user data.
+  // 23.0 my requirement is user is going to apply a job from apply button. As the logged in user is going to apply for the specific job so we need to get the specific job id using useParams() and also we need the user to know who is applying. so we create a custom hook to get the user data.
   const { id } = useParams();
   console.log(id); // get the job id
 

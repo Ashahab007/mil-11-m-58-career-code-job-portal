@@ -10,7 +10,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../../public/firebase/firebase.init";
 
-// 5.1 then created Authprovider
+// 5.0.1 then created Authprovider
 
 const AuthProvider = ({ children }) => {
   // 13.1 import GoogleAuthProvider
@@ -66,7 +66,7 @@ const AuthProvider = ({ children }) => {
     userSignOut,
     googleSignIn,
   };
-  // 5.2
+  // 5.0.2
   return <AuthContext value={authInfo}>{children}</AuthContext>;
 };
 

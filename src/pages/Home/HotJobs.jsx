@@ -1,6 +1,6 @@
 import React, { use, useEffect, useState } from "react";
 import JobsCard from "../shared/JobsCard";
-// 5.5 received as props
+// 18.5 received as props
 const HotJobs = ({ jobsPromise }) => {
   /* const [jobs, setJobs] = useState([]);
   useEffect(() => setJobs(jobsPromise), []);*/
@@ -12,7 +12,7 @@ const HotJobs = ({ jobsPromise }) => {
       <h1 className="text-5xl font-extrabold text-center mb-10">
         Hot Jobs of the Day
       </h1>
-      {/* 5.6 show data in the ui using <JobsCard></JobsCard> component */}
+      {/* 18.6 show data in the ui using <JobsCard></JobsCard> component */}
       <p className="text-center mb-8">Total Jobs:{jobs.length}</p>
       <div className="min-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-4">
         {jobs.map((job) => (

@@ -56,7 +56,7 @@ Index
 
 26.0 But my requirement is show the job data that the applicant's applied (this is the bad method but we have to know)
 
-27.0 my requirement is created also recruiter link to add jobs form
+27.0 My requirement is recruiter can add job circular. so created also recruiter addjobs link to add jobs form.
 
 28.0 Now my requirement is show the job that i posted
 
@@ -85,4 +85,5 @@ VITE_projectId=career-code-job-portal
 VITE_storageBucket=career-code-job-portal.firebasestorage.app
 VITE_messagingSenderId=705332996166
 VITE_appId=1:705332996166:web:6d3fbc5fe1fca920210247
+
  -->

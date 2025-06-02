@@ -32,7 +32,7 @@ const Navbar = () => {
       )}
       {user && (
         <>
-          {/* 27.0 created also recruiter link to add jobs form */}
+          {/* 27.0 My requirement is recruiter can add job circular. so created also recruiter addjobs link to navbar to add jobs form */}
           {/*for recruiter  */}
           <li>
             <NavLink to="/addjobs">Add Jobs</NavLink>

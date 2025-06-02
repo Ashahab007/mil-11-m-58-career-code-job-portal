@@ -2,7 +2,7 @@ import React from "react";
 
 const ApplicationTable = ({ application, index }) => {
   // 26.1
-  const { title, company_logo, company } = application;
+  const { title, company_logo, company, location } = application;
   return (
     <tr>
       <th>
@@ -23,11 +23,9 @@ const ApplicationTable = ({ application, index }) => {
         </div>
       </td>
       <td>
-        Zemlak, Daniel and Leannon
+        {location}
         <br />
-        <span className="badge badge-ghost badge-sm">
-          Desktop Support Technician
-        </span>
+        <span className="badge badge-ghost badge-sm">{title}</span>
       </td>
       <td>Purple</td>
       <th>
